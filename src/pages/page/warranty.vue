@@ -11,7 +11,7 @@
   import Footer from './Footer.vue';
   
   export default {
-    name: 'manufacturer',
+    name: 'warranty',
     components: {
       Header,
       Footer
@@ -22,7 +22,7 @@
   
   <style>
   /* CSS cho trang chính */
-  #manufacturer {
+  #warranty {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
