@@ -74,4 +74,8 @@
 .pb-4 {
     padding-bottom: 1.5rem !important;
 }
+<<<<<<< Updated upstream
 </style>
+=======
+</style>q
+>>>>>>> Stashed changes
