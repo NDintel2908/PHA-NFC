@@ -35,7 +35,9 @@ const router = createRouter({
       path: '/druglist',
       name: 'druglist',
       component: () => import('../pages/auth/druglist.vue')
-    }
+    },
+
+    
   ]
 })
 

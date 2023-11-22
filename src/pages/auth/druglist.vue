@@ -1,5 +1,6 @@
 <template>
-  <v-table theme="white">
+  
+  <v-table class="my-table" theme="white">
     <thead>
       <tr>
         <th class="text-left">Name</th>
@@ -74,3 +75,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.my-table {
+  margin-top: 100px;
+}
+</style>
+
+
+
