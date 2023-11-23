@@ -32,6 +32,8 @@ const router = createRouter({
       path: '/warranty',
       name: 'warranty',
       component: () => import('../pages/page/warranty.vue')
+    },
+    {
       path: '/druglist',
       name: 'druglist',
       component: () => import('../pages/auth/druglist.vue')
