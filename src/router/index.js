@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import manufacturer from '../pages/page/manufacturer.vue'
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,21 +28,8 @@ const router = createRouter({
     {
       path: '/manufacturer',
       name: 'manufacturer',
-      component: () => import('../pages/page/manufacturer.vue')
-    },
-    {
-      path: '/warranty',
-      name: 'warranty',
-      component: () => import('../pages/page/warranty.vue')
-    },
-    {
-      path: '/druglist',
-      name: 'druglist',
-      component: () => import('../pages/auth/druglist.vue')
-    },
-
-    
-  ]
+      component: () => import('../pages/page/manufacturer.vue'),
+    }]
 })
 
 export default router

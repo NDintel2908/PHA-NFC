@@ -9,6 +9,7 @@ import router from './router'
 
 const app = createApp(Layout)
 
+
 app.use(createPinia()) // Use Pinia for state management
 app.use(router) // Use the router
 const vuetify = createVuetify({

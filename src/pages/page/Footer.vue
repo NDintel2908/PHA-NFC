@@ -10,12 +10,9 @@
       </nav>
     </footer>
   </template>
-  
-  <script>
-  export default {
-    name: 'Footer',
-    // Các logic xử lý khác có thể được thêm ở đây
-  }
+
+  <script setup>
+ 
   </script>
   
   <style>

@@ -1,34 +1,77 @@
 <template>
-    <div id="app">
-      <Header />
-      <router-view /> <!-- Đây là nơi hiển thị nội dung của từng trang -->
-      <Footer />
-    </div>
-  </template>
-  
-  <script>
-  import Header from './Header.vue';
-  import Footer from './Footer.vue';
-  
-  export default {
-    name: 'manufacturer',
-    components: {
-      Header,
-      Footer
-    }
-    // Các logic xử lý khác có thể được thêm ở đây
+  <v-table class="my-table" theme="white">
+    <thead>
+      <tr>
+        <th class="text-left">Name</th>
+        <th class="text-left">Calories</th>
+        <th class="text-left">Ingredients</th>
+        <th class="text-left">Country</th>
+        <th class="text-left">License</th>
+        <th class="text-left">Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in manu" :key="item.name">
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+        <td>{{ item.ingredients }}</td>
+        <td>{{ item.country }}</td>
+        <td>{{ item.license }}</td>
+        <td>
+          <v-btn @click="viewDetails(item)">View</v-btn>
+        </td>
+      </tr>
+    </tbody>
+  </v-table>
+</template>
+<script setup>
+import { ref } from "vue";
+const manu = ref(
+  {
+    name: "",
+    calories: "",
+    ingredients: "",
+    country: "",
+    license: "",
+    details: "",
+  },
+  {
+    name: "",
+    calories: "",
+    ingredients: "",
+    country: "",
+    license: "",
+    details: "",
+  },
+  {
+    name: "",
+    calories: "",
+    ingredients: "",
+    country: "",
+    license: "",
+    details: "",
+  },
+  {
+    name: "",
+    calories: "",
+    ingredients: "",
+    country: "",
+    license: "",
+    details: "",
+  },
+  {
+    name: "",
+    calories: "",
+    ingredients: "",
+    country: "",
+    license: "",
+    details: "",
   }
-  </script>
-  
-  <style>
-  /* CSS cho trang chính */
-  #manufacturer {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px; /* Để đỡ bị header che phần đầu nội dung */
-  }
-  </style>
-  
+);
+</script>
+
+<style>
+.my-table {
+  margin-top: 100px;
+}
+</style>
