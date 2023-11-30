@@ -25,61 +25,47 @@
   </header>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
-export default {
-  setup() {
-    const nav = ref([
-      {
-        text: "Home",
-        route: { name: "home" },
-      },
-      {
-        text: "Manufacturer",
-        route: { name: "manufacturer" },
-      },
-      {
-        text: "Drug",
-        route: { name: "drug" },
-
-      },
-      {
-        text: "Warranty",
-        route: { name: "warranty" },
-
-      },
-      {
-        text: "Account",
-
-      },
-    ]);
-
-    const router = useRouter();
-
-    const goToRoute = (route) => {
-      if (route && route.name) {
-        router.push({ name: route.name });
-      } else {
-        // Handle if no route is specified or if the route doesn't have a name
-        console.error("Invalid route:", route);
-      }
-    };
-    data: () => ({
-      open: ['Account'],
-      admins: [
-      ],
-      cruds: [
-       
-      ],
-    });
-    return {
-      nav,
-      goToRoute,
-    };
+const nav = ref([
+  {
+    text: "Home",
+    route: { name: "home" },
   },
+  {
+    text: "Manufacturer",
+    route: { name: "manufacturer" },
+  },
+  {
+    text: "Drug",
+    route: { name: "drug" },
+  },
+  {
+    text: "Warranty",
+    route: { name: "warranty" },
+  },
+  {
+    text: "Account",
+  },
+]);
+
+const router = useRouter();
+
+const goToRoute = (route) => {
+  if (route && route.name) {
+    router.push({ name: route.name });
+  } else {
+    // Handle if no route is specified or if the route doesn't have a name
+    console.error("Invalid route:", route);
+  }
 };
+
+const open = ref(["Account"]);
+const admins = ref([]);
+const cruds = ref([]);
+
 </script>
 
 <style scoped>
