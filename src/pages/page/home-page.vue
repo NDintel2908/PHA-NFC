@@ -1,33 +1,35 @@
 <template>
-  <div id="app">
-    <Header />
-    <router-view /> <!-- Đây là nơi hiển thị nội dung của từng trang -->
-    <Footer />
-  </div>
+  <v-card
+    class="mx-center"
+    width="100%"
+  >
+  <v-carousel>
+  <v-carousel-item
+    src="https://qtxasset.com/quartz/qcloud5/media/image/fiercepharma/1560432313/Vialandbox_1558464320138-HR.jpg?VersionId=7jGlaH96MQqffyS6R70Apld8A7mg2yaa"
+    cover
+  ></v-carousel-item>
+
+  <v-carousel-item
+    src="https://salt.tikicdn.com/cache/w1200/ts/product/60/65/1a/647ebb7b98524cef0d2cea94d2052577.jpeg"
+    cover
+  ></v-carousel-item>
+
+  <v-carousel-item
+    src="https://cdn.tgdd.vn/Products/Images/10034/129139/betaserc24mg-2.jpg"
+    cover
+  ></v-carousel-item>
+</v-carousel>
+  </v-card>
 </template>
-
 <script>
-import Header from './Header.vue';
-import Footer from './Footer.vue';
-
-export default {
-  name: 'home-page',
-  components: {
-    Header,
-    Footer
+  export default {
+    data: () => ({
+      open: ['Users'],
+      admins: [
+      ],
+      cruds: [
+       
+      ],
+    }),
   }
-  // Các logic xử lý khác có thể được thêm ở đây
-}
 </script>
-
-<style>
-/* CSS cho trang chính */
-#home-page {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px; /* Để đỡ bị header che phần đầu nội dung */
-}
-</style>
