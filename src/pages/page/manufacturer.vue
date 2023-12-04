@@ -1,28 +1,36 @@
 <template>
-  <v-table class="my-table" theme="white">
-    <thead>
-      <tr>
-        <th class="text-left">Name</th>
-        <th class="text-left">Calories</th>
-        <th class="text-left">Ingredients</th>
-        <th class="text-left">Country</th>
-        <th class="text-left">License</th>
-        <th class="text-left">Detail</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="item in manu" :key="item.name">
-        <td>{{ item.name }}</td>
-        <td>{{ item.calories }}</td>
-        <td>{{ item.ingredients }}</td>
-        <td>{{ item.country }}</td>
-        <td>{{ item.license }}</td>
-        <td>
-          <v-btn @click="viewDetails(item)">View</v-btn>
-        </td>
-      </tr>
-    </tbody>
-  </v-table>
+  <v-container fluid>
+    <v-row justify="center">
+      <v-col cols="12">
+        <v-card>
+          <v-table class="my-table" theme="white">
+            <thead>
+              <tr>
+                <th class="text-left">Name</th>
+                <th class="text-left">Calories</th>
+                <th class="text-left">Ingredients</th>
+                <th class="text-left">Country</th>
+                <th class="text-left">License</th>
+                <th class="text-left">Detail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in manu" :key="item.name">
+                <td>{{ item.name }}</td>
+                <td>{{ item.calories }}</td>
+                <td>{{ item.ingredients }}</td>
+                <td>{{ item.country }}</td>
+                <td>{{ item.license }}</td>
+                <td>
+                  <v-btn @click="viewDetails(item)">View</v-btn>
+                </td>
+              </tr>
+            </tbody>
+          </v-table>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script setup>
 import { ref } from "vue";
@@ -72,6 +80,9 @@ const manu = ref(
 
 <style>
 .my-table {
-  margin-top: 100px;
+  margin-top: 10px;
 }
+.v-row{
+margin-top: 3vh;
+  }
 </style>
