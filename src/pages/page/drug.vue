@@ -29,8 +29,8 @@ import { ref } from "vue";
 
 const product = ref({
   name: "",
-  description:"",
-  image: "https://t4.ftcdn.net/jpg/03/16/68/69/360_F_316686992_OvCTP1wfazJhBeMrBBDUGooufSmj2O8G.jpg",
+  description:" Qui cách đóng gói: Hộp 10 vỉ x 10 viên; Thành phần: Paracetamol 500mg; Nhóm: thuốc giảm đau, hạ sốt; Nhà sản xuất:  Agimexpharm; Sản xuất tại: Việt Nam; Liều lượng - Cách dùng: Theo chỉ dẫn của bác sỹ",
+  image: "https://duocgiasi.com/image/640aa720c1c3cac0502a54b6/thumbnailfix.jpg",
 });
 
 </script>
