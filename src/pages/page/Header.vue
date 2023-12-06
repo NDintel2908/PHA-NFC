@@ -16,8 +16,18 @@
               :key="item.text"
               @click="goToRoute(item.route)"
             >
-              {{ item.text }}
-            </v-btn>
+              {{ item.text }} </v-btn
+            ><v-menu open-on-hover>
+              <template v-slot:activator="{ props }">
+                <v-btn color="primary" v-bind="props"> Account </v-btn>
+              </template>
+
+              <v-list>
+                <v-list-item v-for="(item, index) in items" :key="index" @click="goToRoute(item.route)">
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-toolbar-items>
         </v-toolbar>
       </v-layout>
@@ -46,10 +56,20 @@ const nav = ref([
     text: "Warranty",
     route: { name: "warranty" },
   },
-  {
-    text: "Account",
-  },
 ]);
+
+const items = ref([
+  { title: "Login",
+    route: { name: "login" },
+  }, 
+
+  { title: "Logout",
+    route: { name: "logout" },
+  }
+]);
+
+
+
 
 const router = useRouter();
 
@@ -61,11 +81,6 @@ const goToRoute = (route) => {
     console.error("Invalid route:", route);
   }
 };
-
-const open = ref(["Account"]);
-const admins = ref([]);
-const cruds = ref([]);
-
 </script>
 
 <style scoped>
