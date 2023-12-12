@@ -4,7 +4,7 @@
     <strong>Create Your Account.</strong>
     <small>Enter details below to create your account.</small>
     <v-form ref="form" v-model="valid" lazy-validation class="mt-1">
-      <v-text-field v-model="firstname" :rules="firstNameRules" outlined dense label="Firstname" required class="mb-2"></v-text-field>
+      <v-text-field v-model="data.firstname" :rules="firstNameRules" outlined dense label="Firstname" required class="mb-2"></v-text-field>
       <v-text-field v-model="lastname" :rules="lastNameRules" outlined dense label="Lastname" required class="mb-2"></v-text-field>
       <v-text-field v-model="email" :rules="emailRules" outlined dense label="E-mail" required class="mb-2"></v-text-field>
       <v-text-field v-model="password" :rules="passwordRules" required type="password" label="Password" class="mb-2" dense outlined ></v-text-field>
@@ -17,11 +17,11 @@
 </div>
 </template>
 
-<script>
-export default {
-  data: () => ({
+<script setup>
+import { ref } from "vue";
+const data = ref({
     valid: true,
-    firstname:'',
+    firstname: '',
     lastname: '',
     email: '',
     password: '',
@@ -52,8 +52,9 @@ export default {
       v => v.length === 10 || 'Enter Valid Phone Number - 10 digits.',
       v => /^(?=[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$)(?!.*[<>'"/;`%])/.test(v) || 'Special Characters Are Not Allowed'
     ]
-  }),
-  methods: {
+  })
+  
+  const methods = ref({
     validate () {
       this.$refs.form.validate();
       const formData = {
@@ -67,8 +68,8 @@ export default {
         this.$emit('signup', formData);
       }
     }
-  }
-}
+  })
+
 </script>
 <style scoped>
 .align-center {
