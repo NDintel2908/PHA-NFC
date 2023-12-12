@@ -34,7 +34,14 @@ const router = createRouter({
       path: '/manufacturer',
       name: 'manufacturer',
       component: () => import('../pages/page/manufacturer.vue'),
-    }]
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      component: () => import('../pages/auth/logout.vue'),
+    }
+   
+  ]
 })
 
 export default router

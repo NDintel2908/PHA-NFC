@@ -1,64 +1,55 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center h-screen">
-    <v-sheet
-      class="bg-deep pa-12 rounded-lg"
-      :class="responsiveClasses"
-      max-width="344"
-    >
-      <v-card class="mx-auto px-6 py-8" max-width="344">
-        <v-form @submit.prevent="handleLogin">
-          <v-text-field
-            v-model="form.email"
-            :rules="[required('Email')]"
-            class="mb-2"
-            label="Email"
-          ></v-text-field>
-
-          <v-text-field
-            v-model="form.password"
-            :rules="[required('Password')]"
-            label="Password"
-            type="password"
-            placeholder="Enter your password"
-          ></v-text-field>
-
-          <br />
-
-          <v-btn
-            :loading="form.loading"
-            block
-            color="success"
-            size="large"
-            type="submit"
-            variant="elevated"
-          >
-            Sign In
-          </v-btn>
-        </v-form>
-      </v-card>
-    </v-sheet>
+  <div class="container">
+    <img src="https://altcoinsbox.com/wp-content/uploads/2023/03/metamask-logo-300x300.webp" alt="Metamask Logo" @click="loginWithMetamask" />
   </div>
 </template>
-<script setup>
-import { ref, computed } from "vue";
 
-const form = ref({
-  email: "",
-  password: "",
-  loading: false,
-});
+<script>
+import detectEthereumProvider from '@metamask/detect-provider';
 
-const required = (fieldName) => (value) =>
-  !!value || "${fieldName} is required";
-
-const handleLogin = () => {
-  console.log(form.value);
+export default {
+  methods: {
+    async loginWithMetamask() {
+      try {
+        const provider = await detectEthereumProvider();
+        if (provider) {
+          // Metamask is installed
+          await provider.request({ method: 'eth_requestAccounts' });
+          const accounts = await provider.request({ method: 'eth_accounts' });
+          // Do something with the logged in account
+          console.log('Logged in with Metamask:', accounts[0]);
+          // Redirect or perform actions after login
+        } else {
+          // Metamask is not installed
+          console.error('Metamask is not installed.');
+          // Handle case when Metamask is not installed
+        }
+      } catch (error) {
+        console.error('Error logging in with Metamask:', error);
+        // Handle error during login process
+      }
+    },
+  },
 };
-
-const responsiveClasses = computed(() => {
-  return {
-    "md:w-1/2": true, // 50% width trên màn hình md (medium)
-    "lg:w-1/3": true,
-  };
-});
 </script>
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  height: 90vh; /* Chiều cao của toàn bộ màn hình */
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.metamask-logo {
+  width: 50px; /* Độ rộng của logo */
+  height: auto; /* Chiều cao tự động điều chỉnh để giữ nguyên tỷ lệ */
+  margin-bottom: 10px; /* Khoảng cách giữa logo và chữ */
+}
+</style>
