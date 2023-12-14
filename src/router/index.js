@@ -39,6 +39,11 @@ const router = createRouter({
       path: '/logout',
       name: 'logout',
       component: () => import('../pages/auth/logout.vue'),
+    },
+    {
+      path: '/warranty',
+      name: 'warranty',
+      component: () => import('../pages/page/warranty.vue'),
     }
    
   ]
